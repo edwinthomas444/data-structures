@@ -1,0 +1,29 @@
+# building heap
+
+1. store elements in an array
+2. elements correspond to a complete binary tree (left leaves get filled before right) and 
+   all levels are completely filled before going to the next level.
+3. root node is arr[-1], child nodes of ith node is given by indexes 2*i and 2*i+1
+4. start heapify all elements in array from right (n//2) to left (root:0) internal nodes
+5. start with bottom-most internal node level right most internal node, get left and right node vals,
+   if they are smaller (for min heap case) swap root node
+   with smallest and continue growing heapifying corresponding branch (recursively)
+   i.e from nodes n//2 to 0 ,-1 increments (building heap: is top-to-bottom approach-starting from 
+   bottommost internal node all the way to the root node)
+
+6. heap sort works by first building the heap (1..5) and then deleting root elemtn, (swap it with -1 or 
+   bottom-most level right-most leaf value) and heapify the root.
+   log(n) for heapify operation and for getting n sorted elements we have to do 6. n times
+   so complexity of n*log(n)
+
+7. to insert , insert in last level right most leaf and heapify move bottom-up till nodes parent is smaller
+   than it (insert: is bottom up comparisons): O(logn)
+
+Note: an array representing complete binary tree is more or less like level order traversal fromm root level
+      to the bottom-most leaf level.
+
+
+
+
+
+
