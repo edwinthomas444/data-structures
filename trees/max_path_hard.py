@@ -24,7 +24,6 @@ Explanation: The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 
 #         self.left = left
 #         self.right = right
 
-import math
 class Solution(object):
     
     def maxPathSum(self, root):
@@ -51,7 +50,7 @@ class Solution(object):
             # the path where only left or right path is maximum is considered when max_left_split = max(0,max_left_split)
             # i.e a max sum path wont include left branch or right branch if that branch is negative or adding it
             # reduces the sum, thats why 0 added in max expression to cut this path (hence all possibilities considered)
-            
+
             max_nosplit = max(max_nosplit, max_nosplit_l, max_nosplit_r, max_left_split+root.val+max_right_split)
             max_split = max(max_left_split, max_right_split) + root.val
             return max_split, max_nosplit
